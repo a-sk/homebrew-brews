@@ -1,5 +1,5 @@
 # Formula
 
-## mutt
+## mutt-sidebar
 
 latest mutt with sidebar patch
