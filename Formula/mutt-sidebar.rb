@@ -26,7 +26,6 @@ class MuttSidebar < Formula
     :because => 'both install mmdf.5 and mbox.5 man pages'
 
   option "with-debug", "Build with debug option enabled"
-  option "with-sidebar-patch", "Build with sidebar enabled"
   option "with-trash-patch", "Apply trash folder patch"
   option "with-s-lang", "Build against slang instead of ncurses"
   option "with-ignore-thread-patch", "Apply ignore-thread patch"
@@ -37,10 +36,16 @@ class MuttSidebar < Formula
   depends_on 's-lang' => :optional
   depends_on 'gpgme' => :optional
 
+  patch do
+      url "ftp://ftp.openbsd.org/pub/OpenBSD/distfiles/mutt/sidebar-1.5.22.diff1.gz"
+      sha1 "ed69fc3ac9a137a33956b08e2ed4243bcad0a2aa"
+  end
+
+
   def patches
     urls = [
       ['with-trash-patch', 'http://patch-tracker.debian.org/patch/series/dl/mutt/1.5.21-6.4/features/trash-folder'],
-      ['with-sidebar-patch', 'ftp://ftp.openbsd.org/pub/OpenBSD/distfiles/mutt/sidebar-1.5.22.diff1.gz'],
+      
 
       # original source for this went missing, patch sourced from Arch at
       # https://aur.archlinux.org/packages/mutt-ignore-thread/
